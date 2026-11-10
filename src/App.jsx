@@ -25,7 +25,7 @@ import {
   Users,
   Wrench,
   X,
-} from "lucide-react";
+} from "./components/Icons.jsx";
 import { MriyaLogo, PartnerWordmark, PlatformEmblem } from "./components/BrandMark.jsx";
 import { ServiceModal } from "./components/ServiceModal.jsx";
 import {
@@ -322,12 +322,14 @@ function App() {
             <div className="about-layout">
               <aside className="about-card">
                 <div className="about-card__head">
-                  <img
-                    src="/logo-mark.svg"
-                    alt="Mriya Co Limited emblem"
-                    width="52"
-                    height="52"
-                  />
+                  <span className="about-card__logo-frame">
+                    <img
+                      src="/logo-mark.png"
+                      alt="Mriya Co Limited emblem"
+                      width="52"
+                      height="52"
+                    />
+                  </span>
                   <span className="about-card__badge">Mriya Co Limited · Mriya AV</span>
                 </div>
                 <p className="about-card__quote">

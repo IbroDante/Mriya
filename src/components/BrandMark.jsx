@@ -1,31 +1,14 @@
 export function MriyaLogo({ compact = false, light = false }) {
+  const size = compact ? 38 : 44;
   return (
     <span className={`mriya-brand ${light ? "mriya-brand--light" : ""}`}>
-      <svg
+      <img
         className="mriya-brand__mark"
-        width={compact ? 36 : 42}
-        height={compact ? 36 : 42}
-        viewBox="0 0 64 64"
-        fill="none"
-        aria-hidden="true"
-      >
-        <rect width="64" height="64" rx="14" fill={light ? "#1E293B" : "#0F172A"} />
-        <path
-          d="M14 46V20L32 34L50 20V46"
-          stroke="#FFFFFF"
-          strokeWidth="5.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M14 20L32 34L50 20"
-          stroke="#38BDF8"
-          strokeWidth="5.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle cx="32" cy="15.5" r="3.5" fill="#38BDF8" />
-      </svg>
+        src="/logo-mark.png"
+        alt=""
+        width={size}
+        height={size}
+      />
       <span className="mriya-brand__text">
         <strong>Mriya</strong>
         <small>CO LIMITED</small>

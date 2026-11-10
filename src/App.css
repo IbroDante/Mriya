@@ -109,8 +109,23 @@ h4 {
 
 .mriya-brand__mark {
   flex-shrink: 0;
-  box-shadow: 0 6px 14px -4px rgba(15, 23, 42, 0.25);
-  border-radius: 10px;
+  object-fit: contain;
+  display: block;
+}
+
+.about-card__logo-frame {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(2, 132, 199, 0.14);
+  box-shadow: 0 8px 20px -6px rgba(15, 23, 42, 0.12);
+}
+
+.about-card__logo-frame img {
+  object-fit: contain;
 }
 
 .mriya-brand__text {
