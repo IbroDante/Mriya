@@ -1166,10 +1166,25 @@ function App() {
           </div>
 
           <div className="footer-bottom">
-            <span>
-              © {new Date().getFullYear()} {companyInfo.name}.{" "}
-              {companyInfo.rcNumber}.
-            </span>
+            <div className="footer-trademark">
+              <span>
+                © {new Date().getFullYear()} {companyInfo.name}.{" "}
+                {companyInfo.rcNumber}.
+              </span>
+              <span className="footer-sep" aria-hidden="true">
+                ·
+              </span>
+              <span className="footer-credit">
+                Designed by{" "}
+                <a
+                  href="https://plugtech.onrender.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Plug Tech
+                </a>
+              </span>
+            </div>
             <a className="back-to-top" href="#home">
               Back to top <ArrowUp size={14} aria-hidden="true" />
             </a>

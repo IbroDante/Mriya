@@ -2042,9 +2042,32 @@ h4 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 12px 20px;
   font-size: 12.5px;
-  color: #64748b;
+  color: #94a3b8;
+}
+
+.footer-trademark {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+}
+
+.footer-sep {
+  color: #475569;
+}
+
+.footer-credit a {
+  color: var(--sky);
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+.footer-credit a:hover {
+  color: var(--white);
+  text-decoration: underline;
 }
 
 .back-to-top {
