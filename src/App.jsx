@@ -26,6 +26,9 @@ import {
   Wrench,
   X,
 } from "./components/Icons.jsx";
+import logoMark from "./assets/logo-mark.png";
+import heroBoardroomImg from "./assets/images/hero-boardroom.jpg";
+import headsetsHeroImg from "./assets/images/headsets-hero.jpg";
 import { MriyaLogo, PartnerWordmark, PlatformEmblem } from "./components/BrandMark.jsx";
 import { ServiceModal } from "./components/ServiceModal.jsx";
 import {
@@ -252,7 +255,7 @@ function App() {
             <div className="hero-visual-wrap">
               <div className="hero-visual-frame">
                 <img
-                  src="/images/hero-boardroom.jpg"
+                  src={heroBoardroomImg}
                   alt="Modern hybrid executive boardroom integrated by Mriya Co Limited"
                 />
                 <div className="hero-visual-scrim" />
@@ -324,7 +327,7 @@ function App() {
                 <div className="about-card__head">
                   <span className="about-card__logo-frame">
                     <img
-                      src="/logo-mark.png"
+                      src={logoMark}
                       alt="Mriya Co Limited emblem"
                       width="52"
                       height="52"
@@ -699,7 +702,7 @@ function App() {
                 </div>
                 <div className="headsets-banner__media">
                   <img
-                    src="/images/headsets-hero.jpg"
+                    src={headsetsHeroImg}
                     alt="Enterprise wireless office headsets with dual charging base"
                   />
                 </div>

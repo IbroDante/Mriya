@@ -1,3 +1,16 @@
+import serviceBrandingImg from "../assets/images/service-branding.jpg";
+import serviceCivilImg from "../assets/images/service-civil.jpg";
+import serviceDigitalImg from "../assets/images/service-digital.jpg";
+import serviceEdtechImg from "../assets/images/service-edtech.jpg";
+import serviceItImg from "../assets/images/service-it.jpg";
+import serviceMechImg from "../assets/images/service-mech.jpg";
+import serviceOilgasImg from "../assets/images/service-oilgas.jpg";
+import serviceSupplyImg from "../assets/images/service-supply.jpg";
+import spaceHuddleImg from "../assets/images/space-huddle.jpg";
+import spaceLargeImg from "../assets/images/space-large.jpg";
+import spaceMediumImg from "../assets/images/space-medium.jpg";
+import spacePhoneboothImg from "../assets/images/space-phonebooth.jpg";
+
 export const companyInfo = {
   name: "Mriya Co Limited",
   shortName: "Mriya",
@@ -49,7 +62,7 @@ export const services = [
     label: "Collaboration & Teams Rooms",
     description:
       "Specialist Microsoft Teams Rooms, Pro-AV design, video conferencing, acoustics, and wireless presentation systems.",
-    image: "/images/space-medium.jpg",
+    image: spaceMediumImg,
     capabilities: [
       "Microsoft Teams Rooms consulting, certified hardware, licensing, deployment & user adoption training",
       "Audio-visual design, collaboration technology, control programming & onsite technical support",
@@ -70,7 +83,7 @@ export const services = [
     label: "Enterprise Systems",
     description:
       "Secure, dependable computing, server, and network infrastructure engineered for resilient daily business operations.",
-    image: "/images/service-it.jpg",
+    image: serviceItImg,
     capabilities: [
       "Computers, laptops, desktops, workstations, and business peripherals",
       "Servers, storage arrays, enterprise networking switches, and accessories",
@@ -88,7 +101,7 @@ export const services = [
     label: "Business Transformation",
     description:
       "Modern digital tools, cloud workflows, and custom platforms that streamline operations and strengthen visibility.",
-    image: "/images/service-digital.jpg",
+    image: serviceDigitalImg,
     capabilities: [
       "Business process digitisation and workflow automation",
       "Website architecture, UI design, and digital presence solutions",
@@ -108,7 +121,7 @@ export const services = [
     label: "EdTech & Smart Learning",
     description:
       "Interactive teaching and hybrid learning environments designed for schools, universities, and training academies.",
-    image: "/images/service-edtech.jpg",
+    image: serviceEdtechImg,
     capabilities: [
       "Interactive flat panels, smart boards, and connected classroom solutions",
       "Digital science laboratories and STEM teaching equipment",
@@ -126,7 +139,7 @@ export const services = [
     label: "Procurement & Technical Sourcing",
     description:
       "Specification-matched sourcing and coordinated OEM supply for institutional, corporate, and industrial projects.",
-    image: "/images/service-supply.jpg",
+    image: serviceSupplyImg,
     capabilities: [
       "IT, Pro-AV, telecommunications, and enterprise networking hardware",
       "Certified Microsoft Teams, Zoom, and Google Meet room endpoints & headsets",
@@ -146,8 +159,7 @@ export const services = [
     label: "Technical & Facility Support",
     description:
       "Specialised inspection, calibration, instrumentation, and facility support across upstream, midstream, and downstream assets.",
-    image:
-      "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=1000&q=85",
+    image: serviceOilgasImg,
     capabilities: [
       "Storage tank calibration and precision calibration chart preparation",
       "Ultrasonic Thickness Measurement (UTM) for corrosion and wall-thickness integrity",
@@ -166,8 +178,7 @@ export const services = [
     label: "Installations & Maintenance",
     description:
       "Dependable mechanical installations, rotating equipment support, and industrial maintenance for operational facilities.",
-    image:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1000&q=85",
+    image: serviceMechImg,
     capabilities: [
       "Mechanical equipment installation, alignment, and replacement",
       "Industrial pumps, valves, piping runs, and auxiliary systems installation",
@@ -184,8 +195,7 @@ export const services = [
     label: "Construction & EPC",
     description:
       "Coordinated engineering, procurement, and construction delivery for commercial, institutional, and energy infrastructure.",
-    image:
-      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1000&q=85",
+    image: serviceCivilImg,
     capabilities: [
       "Civil works, commercial building construction, and structural rehabilitation",
       "Concrete foundations, civil pads, and structural steel installations",
@@ -204,8 +214,7 @@ export const services = [
     label: "Executive Gifts & Print",
     description:
       "Curated executive merchandise, branded stationery, and presentation collateral that elevate organisational identity.",
-    image:
-      "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=1000&q=85",
+    image: serviceBrandingImg,
     capabilities: [
       "Executive corporate gifts and client appreciation sets",
       "Custom-branded notebooks, pens, apparel, and technology accessories",
@@ -224,7 +233,7 @@ export const collaborationSpaces = {
       dimensions: "6 × 6′ – 10 × 10′",
       capacity: "1 – 2 People",
       tag: "On-Demand Hybrid Pods",
-      image: "/images/space-phonebooth.jpg",
+      image: spacePhoneboothImg,
       description:
         "Mriya AV solutions for acoustic booths and compact focus pods give hybrid professionals private, echo-free video conferencing on demand.",
       highlights: [
@@ -239,7 +248,7 @@ export const collaborationSpaces = {
       dimensions: "10 × 10′ – 15 × 15′",
       capacity: "3 – 5 People",
       tag: "Agile Team Collaboration",
-      image: "/images/space-huddle.jpg",
+      image: spaceHuddleImg,
       description:
         "When the need to collaborate strikes, Mriya AV designs deliver seamless, lifelike interactivity for teams across physical and virtual huddle rooms.",
       highlights: [
@@ -254,7 +263,7 @@ export const collaborationSpaces = {
       dimensions: "15 × 20′ – 20 × 20′",
       capacity: "6 – 12 People",
       tag: "All-in-One Meeting Suites",
-      image: "/images/space-medium.jpg",
+      image: spaceMediumImg,
       description:
         "Mriya AV's all-in-one medium conference room audio-video systems make multi-participant hybrid collaboration intuitive and reliable.",
       highlights: [
@@ -269,7 +278,7 @@ export const collaborationSpaces = {
       dimensions: "15 × 28′ – 20 × 33′",
       capacity: "12 – 24+ People",
       tag: "Executive Boardrooms & Training",
-      image: "/images/space-large.jpg",
+      image: spaceLargeImg,
       description:
         "Engineered for executive boardrooms, town halls, and training suites where every seat needs crystal-clear voice capture and unobstructed sightlines.",
       highlights: [
@@ -286,7 +295,7 @@ export const collaborationSpaces = {
       dimensions: "Up to 10 × 10′",
       capacity: "1 – 2 People",
       tag: "Microsoft Teams on Windows",
-      image: "/images/space-phonebooth.jpg",
+      image: spacePhoneboothImg,
       description:
         "Certified Poly + Windows native Microsoft Teams Rooms bundle engineered for solo executives and focused 1-on-1 hybrid calls.",
       highlights: [
@@ -301,7 +310,7 @@ export const collaborationSpaces = {
       dimensions: "10 × 12′ – 15 × 15′",
       capacity: "3 – 5 People",
       tag: "Certified Compact Kit",
-      image: "/images/space-huddle.jpg",
+      image: spaceHuddleImg,
       description:
         "Fast-deploying small huddle room kit pairing Poly Acoustic Fence clarity with native Windows Teams Rooms management.",
       highlights: [
@@ -316,7 +325,7 @@ export const collaborationSpaces = {
       dimensions: "15 × 20′ – 20 × 20′",
       capacity: "6 – 10 People",
       tag: "Certified Mid-Room Kit",
-      image: "/images/space-medium.jpg",
+      image: spaceMediumImg,
       description:
         "Balanced mid-sized conference package combining studio-grade optical zoom with tabletop expansion audio and touch control.",
       highlights: [
@@ -331,7 +340,7 @@ export const collaborationSpaces = {
       dimensions: "18 × 28′ – 25 × 35′",
       capacity: "12 – 24+ People",
       tag: "Certified Large Room & Training",
-      image: "/images/space-large.jpg",
+      image: spaceLargeImg,
       description:
         "Flagship Poly Windows room architecture built for boardrooms, multi-row lecture rooms, and corporate training centres.",
       highlights: [
