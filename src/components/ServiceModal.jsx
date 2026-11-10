@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ArrowUpRight, CheckCircle2, X } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, X } from "./Icons.jsx";
 
 export function ServiceModal({ service, onClose, onInquire }) {
   useEffect(() => {
