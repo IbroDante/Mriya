@@ -81,9 +81,12 @@ function App() {
     organization: "",
     interest: "Audiovisual & Teams Rooms",
     message: "",
+    website: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedInquiry, setSubmittedInquiry] = useState(null);
   const [formError, setFormError] = useState("");
+  const [showMailFallback, setShowMailFallback] = useState(false);
 
   useEffect(() => {
     function handleScroll() {
@@ -126,14 +129,56 @@ function App() {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   }
 
-  function handleFormSubmit(event) {
+  async function handleFormSubmit(event) {
     event.preventDefault();
+    if (isSubmitting) return;
     if (!formState.name.trim() || !formState.email.trim() || !formState.message.trim()) {
       setFormError("Please fill in your name, email address, and project message.");
+      setShowMailFallback(false);
       return;
     }
+
     setFormError("");
-    setSubmittedInquiry({ ...formState });
+    setShowMailFallback(false);
+    setIsSubmitting(true);
+
+    const apiBase = (import.meta.env.VITE_CONTACT_API_URL || "").replace(/\/$/, "");
+    const endpoint = apiBase ? `${apiBase}/api/contact` : "./api/contact";
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formState),
+      });
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || !data.ok) {
+        setFormError(
+          data.error ||
+            "Could not send directly via the email server right now. You can send via your email app below."
+        );
+        setShowMailFallback(true);
+        return;
+      }
+
+      setSubmittedInquiry({ ...formState });
+      setFormState({
+        name: "",
+        email: "",
+        organization: "",
+        interest: formState.interest,
+        message: "",
+        website: "",
+      });
+    } catch {
+      setFormError(
+        "Email server is currently unreachable. Please click below to send directly via your email app."
+      );
+      setShowMailFallback(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   function buildMailtoUrl(payload) {
@@ -145,7 +190,7 @@ function App() {
         payload.organization || "N/A"
       }\nSolution Interest: ${payload.interest}\n\nMessage:\n${payload.message}`
     );
-    return `mailto:${companyInfo.salesEmail}?cc=${companyInfo.primaryEmail}&subject=${subject}&body=${body}`;
+    return `mailto:${companyInfo.primaryEmail}?subject=${subject}&body=${body}`;
   }
 
   function closeMenu() {
@@ -988,32 +1033,39 @@ function App() {
               {submittedInquiry ? (
                 <div className="form-success" role="status">
                   <CheckCircle2 size={32} className="success-icon" />
-                  <h4>Inquiry prepared for {submittedInquiry.name}</h4>
+                  <h4>Message sent to {companyInfo.primaryEmail}</h4>
                   <p>
-                    Your inquiry regarding{" "}
-                    <strong>{submittedInquiry.interest}</strong> is ready. Send it
-                    directly to our sales &amp; technical desk or edit your message
-                    below.
+                    Thank you, <strong>{submittedInquiry.name}</strong>. Your
+                    inquiry regarding <strong>{submittedInquiry.interest}</strong>{" "}
+                    has been delivered directly to our team, and we will reply to{" "}
+                    <strong>{submittedInquiry.email}</strong> shortly.
                   </p>
                   <div className="form-success-actions">
-                    <a
-                      className="btn btn-primary"
-                      href={buildMailtoUrl(submittedInquiry)}
-                    >
-                      Open in Email App ({companyInfo.salesEmail})
-                      <ArrowUpRight size={16} aria-hidden="true" />
-                    </a>
                     <button
                       type="button"
-                      className="btn btn-secondary"
+                      className="btn btn-primary"
                       onClick={() => setSubmittedInquiry(null)}
                     >
-                      Edit message
+                      Send another inquiry
                     </button>
                   </div>
                 </div>
               ) : (
                 <form className="inquiry-form" onSubmit={handleFormSubmit} noValidate>
+                  <div className="hp-field" aria-hidden="true">
+                    <label>
+                      <span>Website</span>
+                      <input
+                        type="text"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={formState.website}
+                        onChange={(e) =>
+                          setFormState((s) => ({ ...s, website: e.target.value }))
+                        }
+                      />
+                    </label>
+                  </div>
                   <div className="form-row-2">
                     <label>
                       <span>Your Name *</span>
@@ -1120,14 +1172,27 @@ function App() {
                   </label>
 
                   {formError && (
-                    <p className="form-error" role="alert">
-                      {formError}
-                    </p>
+                    <div className="form-error-box" role="alert">
+                      <p className="form-error">{formError}</p>
+                      {showMailFallback && (
+                        <a
+                          className="btn btn-secondary btn-fallback"
+                          href={buildMailtoUrl(formState)}
+                        >
+                          Open in Email App ({companyInfo.primaryEmail})
+                          <ArrowUpRight size={15} aria-hidden="true" />
+                        </a>
+                      )}
+                    </div>
                   )}
 
-                  <button type="submit" className="btn btn-primary btn-full">
+                  <button
+                    type="submit"
+                    className="btn btn-primary btn-full"
+                    disabled={isSubmitting}
+                  >
                     <Send size={16} aria-hidden="true" />
-                    Send message
+                    {isSubmitting ? "Sending message..." : "Send message"}
                   </button>
                 </form>
               )}

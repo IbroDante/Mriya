@@ -1814,6 +1814,35 @@ h4 {
   color: #b91c1c;
 }
 
+.form-error-box {
+  display: grid;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.btn-fallback {
+  justify-self: start;
+  padding: 10px 14px;
+  font-size: 13px;
+}
+
+.btn:disabled {
+  opacity: 0.72;
+  cursor: wait;
+  transform: none;
+}
+
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .form-success {
   padding: 24px;
   border-radius: var(--radius-md);
