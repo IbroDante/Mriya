@@ -1,10 +1,12 @@
+import logoMark from "../assets/logo-mark.png";
+
 export function MriyaLogo({ compact = false, light = false }) {
   const size = compact ? 38 : 44;
   return (
     <span className={`mriya-brand ${light ? "mriya-brand--light" : ""}`}>
       <img
         className="mriya-brand__mark"
-        src="/logo-mark.png"
+        src={logoMark}
         alt=""
         width={size}
         height={size}
