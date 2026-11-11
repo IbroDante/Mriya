@@ -42,6 +42,7 @@ import {
   extendedEcosystemBrands,
   flagshipPartners,
   headsets,
+  headsetsSection,
   industries,
   instrumentationAutomation,
   serviceCategories,
@@ -725,20 +726,12 @@ function App() {
               ))}
             </div>
 
-            {/* Enterprise Headsets Catalog */}
+            {/* Headsets Catalog (from mriyacolimited.com.ng) */}
             <div className="headsets-block">
               <div className="headsets-banner">
                 <div className="headsets-banner__copy">
-                  <span className="section-kicker">ENTERPRISE HEADSETS</span>
-                  <h3>
-                    Crystal-clear voice for hybrid work, contact centres &amp;
-                    executive desks.
-                  </h3>
-                  <p>
-                    Find the right wireless DECT, USB-C, and Bluetooth headsets
-                    from Poly and Jabra for office floors, remote work, and online
-                    training.
-                  </p>
+                  <span className="section-kicker">{headsetsSection.heading}</span>
+                  <h3>{headsetsSection.description}</h3>
                   <div className="headset-filters" role="tablist" aria-label="Filter headsets by brand">
                     {[
                       { id: "all", label: "All Headsets (8)" },
@@ -763,7 +756,7 @@ function App() {
                 <div className="headsets-banner__media">
                   <img
                     src={headsetsHeroImg}
-                    alt="Enterprise wireless office headsets with dual charging base"
+                    alt="Headsets and headphones for video conferencing, working from home, and online classes"
                   />
                 </div>
               </div>
@@ -771,30 +764,34 @@ function App() {
               <div className="headsets-grid">
                 {filteredHeadsets.map((item) => (
                   <article className="headset-card" key={item.id}>
-                    <div className="headset-card__top">
-                      <span
-                        className={`brand-pill brand-pill--${item.brand.toLowerCase()}`}
-                      >
-                        {item.brand}
-                      </span>
-                      <span className="headset-style">{item.style}</span>
+                    <div className="headset-card__media">
+                      <img
+                        src={item.image}
+                        alt={`${item.model} — ${item.variant}`}
+                        loading="lazy"
+                      />
                     </div>
-                    <h4>{item.model}</h4>
-                    <div className="headset-variant">{item.variant}</div>
-                    <p>{item.highlight}</p>
-                    <div className="headset-card__foot">
-                      <span className="headset-conn mono-text">
-                        {item.connectivity}
-                      </span>
-                      <button
-                        type="button"
-                        className="headset-quote-btn"
-                        onClick={() =>
-                          jumpToInquiry(`${item.model} (${item.variant})`)
-                        }
-                      >
-                        Quote <ArrowUpRight size={14} aria-hidden="true" />
-                      </button>
+                    <div className="headset-card__body">
+                      <div className="headset-card__top">
+                        <span
+                          className={`brand-pill brand-pill--${item.brand.toLowerCase()}`}
+                        >
+                          {item.brand}
+                        </span>
+                      </div>
+                      <h4>{item.model}</h4>
+                      <div className="headset-variant">{item.variant}</div>
+                      <div className="headset-card__foot">
+                        <button
+                          type="button"
+                          className="headset-quote-btn"
+                          onClick={() =>
+                            jumpToInquiry(`${item.model} — ${item.variant}`)
+                          }
+                        >
+                          Request quote <ArrowUpRight size={14} aria-hidden="true" />
+                        </button>
+                      </div>
                     </div>
                   </article>
                 ))}

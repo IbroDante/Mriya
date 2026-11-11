@@ -1,5 +1,13 @@
 import automationWaterCaseImg from "../assets/images/automation-water-case.jpg";
 import instrumentationImg from "../assets/images/instrumentation-automation.jpg";
+import jabraEngage65ConvertibleImg from "../assets/images/headsets/jabra-engage-65-convertible.png";
+import jabraEngage65MonoImg from "../assets/images/headsets/jabra-engage-65-mono.jpg";
+import jabraEngage65StereoImg from "../assets/images/headsets/jabra-engage-65-stereo.jpg";
+import jabraEngage75MonoImg from "../assets/images/headsets/jabra-engage-75-mono.jpg";
+import polySavi8210UsbaImg from "../assets/images/headsets/poly-savi-8210-usba.jpg";
+import polySavi8220Img from "../assets/images/headsets/poly-savi-8220.jpg";
+import polyVoyager5200Office2WayImg from "../assets/images/headsets/poly-voyager-5200-office-2way.jpg";
+import polyVoyager5200Usbc2WayImg from "../assets/images/headsets/poly-voyager-5200-usbc-2way.jpg";
 import serviceBrandingImg from "../assets/images/service-branding.jpg";
 import serviceCivilImg from "../assets/images/service-civil.jpg";
 import serviceDigitalImg from "../assets/images/service-digital.jpg";
@@ -407,78 +415,68 @@ export const softwarePlatforms = [
   },
 ];
 
+export const headsetsSection = {
+  heading: "HEADSETS",
+  description:
+    "Find the best headsets and headphones for video conferencing, working from home, online classes and more.",
+};
+
 export const headsets = [
   {
     id: "poly-voyager-5200-2way",
     brand: "Poly",
     model: "Poly Voyager 5200",
-    variant: "Office 2-Way Base",
-    style: "Over-the-Ear Mono",
-    connectivity: "Desk Phone · PC · Mobile",
-    highlight: "Four-mic WindSmart noise cancellation for executives on the move.",
-  },
-  {
-    id: "poly-voyager-5200-usbc",
-    brand: "Poly",
-    model: "Poly Voyager 5200",
-    variant: "Office USB-C, 2-Way Base",
-    style: "Over-the-Ear Mono",
-    connectivity: "USB-C · Desk Phone · Bluetooth",
-    highlight: "Modern USB-C laptop connectivity paired with multi-device office base.",
+    variant: "Office 2 Way Base",
+    image: polyVoyager5200Office2WayImg,
   },
   {
     id: "poly-savi-8210",
     brand: "Poly",
     model: "Poly Savi 8210 USB-A",
     variant: "Office, Monaural, Standard",
-    style: "Monaural On-Ear",
-    connectivity: "DECT Wireless · USB-A · Desk",
-    highlight: "Long-range DECT wireless freedom with active close-conversation limiting.",
+    image: polySavi8210UsbaImg,
   },
   {
     id: "poly-savi-8220",
     brand: "Poly",
     model: "Poly Savi 8220",
-    variant: "Office, Stereo, Standard",
-    style: "Binaural Stereo",
-    connectivity: "DECT Wireless · PC · Desk · Mobile",
-    highlight: "Dual-ear active noise cancellation (ANC) for focused open-office teams.",
+    variant: "Office, Stereo, Standard 3",
+    image: polySavi8220Img,
+  },
+  {
+    id: "poly-voyager-5200-usbc",
+    brand: "Poly",
+    model: "Poly Voyager 5200",
+    variant: "Office USB-C, 2 Way Base",
+    image: polyVoyager5200Usbc2WayImg,
   },
   {
     id: "jabra-engage-65-mono",
     brand: "Jabra",
     model: "Jabra Engage 65",
     variant: "Mono Headset",
-    style: "Monaural Headband",
-    connectivity: "DECT Wireless · Desk + PC",
-    highlight: "Industry-leading DECT wireless range up to 150m with all-day battery life.",
+    image: jabraEngage65MonoImg,
   },
   {
     id: "jabra-engage-65-conv",
     brand: "Jabra",
     model: "Jabra Engage 65",
     variant: "Convertible Headset",
-    style: "3-in-1 Convertible",
-    connectivity: "DECT Wireless · USB + Desk",
-    highlight: "Featherlight earhook, neckband, or headband flexibility for call centres.",
+    image: jabraEngage65ConvertibleImg,
   },
   {
     id: "jabra-engage-75-mono",
     brand: "Jabra",
     model: "Jabra Engage 75",
     variant: "Mono Headset",
-    style: "Monaural Touch Base",
-    connectivity: "DECT + Dual Bluetooth (5 Devices)",
-    highlight: "Touchscreen base station connecting up to five simultaneous devices.",
+    image: jabraEngage75MonoImg,
   },
   {
     id: "jabra-engage-65-stereo",
     brand: "Jabra",
     model: "Jabra Engage 65",
     variant: "Stereo Headset",
-    style: "Binaural Stereo",
-    connectivity: "DECT Wireless · Desk + PC",
-    highlight: "Crystal-clear wideband audio and integrated busylight for high-focus roles.",
+    image: jabraEngage65StereoImg,
   },
 ];
 
