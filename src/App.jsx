@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {
+  Activity,
   ArrowRight,
   ArrowUp,
   ArrowUpRight,
@@ -7,8 +8,10 @@ import {
   Building2,
   CheckCircle2,
   Compass,
+  Cpu,
   Factory,
   Flame,
+  Gauge,
   GraduationCap,
   HardHat,
   Headphones,
@@ -40,6 +43,7 @@ import {
   flagshipPartners,
   headsets,
   industries,
+  instrumentationAutomation,
   serviceCategories,
   services,
   softwarePlatforms,
@@ -67,6 +71,12 @@ const advantageIcons = {
   partnership: Award,
 };
 
+const automationIcons = {
+  instrumentation: Gauge,
+  automation: Cpu,
+  iiot: Activity,
+};
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -75,6 +85,7 @@ function App() {
   const [spaceMode, setSpaceMode] = useState("blueprints");
   const [activeSpaceId, setActiveSpaceId] = useState("huddle");
   const [headsetBrand, setHeadsetBrand] = useState("all");
+  const [automationTab, setAutomationTab] = useState("process");
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -237,6 +248,9 @@ function App() {
             <a href="#platforms" onClick={closeMenu}>
               Platforms &amp; Gear
             </a>
+            <a href="#automation" onClick={closeMenu}>
+              Automation
+            </a>
             <a href="#approach" onClick={closeMenu}>
               Approach
             </a>
@@ -284,11 +298,11 @@ function App() {
               <div className="hero-trust-row">
                 <div>
                   <span className="trust-label">ABUJA HQ</span>
-                  <strong>Suite 19A, Anon Plaza, Apo</strong>
+                  <strong>BASSAN Plaza, CBD, Abuja-FCT</strong>
                 </div>
                 <div>
                   <span className="trust-label">SPECIALISATION</span>
-                  <strong>Microsoft Teams Rooms &amp; EPC</strong>
+                  <strong>Microsoft Teams Rooms &amp; Automation</strong>
                 </div>
                 <div>
                   <span className="trust-label">REGISTRATION</span>
@@ -829,12 +843,173 @@ function App() {
           </div>
         </section>
 
+        {/* INSTRUMENTATION & AUTOMATION */}
+        <section className="section section-white" id="automation">
+          <div className="container">
+            <div className="section-header-split">
+              <div>
+                <div className="section-kicker">05 / INSTRUMENTATION &amp; AUTOMATION</div>
+                <h2>
+                  Precision control for{" "}
+                  <span className="accent-text">industrial excellence.</span>
+                </h2>
+              </div>
+              <p className="section-aside">
+                From calibrated field transmitters to PLC/SCADA supervision and
+                IIoT diagnostics across energy, water, and manufacturing plants.
+              </p>
+            </div>
+
+            <div className="automation-hero-grid">
+              <div className="automation-media">
+                <img
+                  src={instrumentationAutomation.image}
+                  alt="Industrial process instrumentation skid with pressure transmitters and SCADA HMI control panel"
+                />
+                <div className="automation-media__caption">
+                  <span>FLOW · PRESSURE · PLC / SCADA · IIoT</span>
+                </div>
+              </div>
+
+              <div className="automation-overview">
+                <p className="automation-lead">
+                  {instrumentationAutomation.summary}
+                </p>
+
+                <div className="automation-pillars">
+                  {instrumentationAutomation.pillars.map((pillar) => {
+                    const Icon = automationIcons[pillar.id] || Gauge;
+                    return (
+                      <article className="automation-pillar" key={pillar.id}>
+                        <span className="automation-pillar__icon">
+                          <Icon size={19} aria-hidden="true" />
+                        </span>
+                        <div>
+                          <h3>{pillar.title}</h3>
+                          <p>{pillar.summary}</p>
+                        </div>
+                      </article>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <div className="automation-outcomes">
+              {instrumentationAutomation.outcomes.map((item) => (
+                <div className="outcome-tile" key={item.label}>
+                  <strong className="mono-text">{item.metric}</strong>
+                  <h4>{item.label}</h4>
+                  <p>{item.detail}</p>
+                </div>
+              ))}
+            </div>
+
+            {(() => {
+              const activeTrack =
+                instrumentationAutomation.solutionTracks.find(
+                  (t) => t.id === automationTab
+                ) || instrumentationAutomation.solutionTracks[0];
+              return (
+                <div className="automation-explorer">
+                  <div
+                    className="automation-tabs"
+                    role="tablist"
+                    aria-label="Instrumentation and automation solutions"
+                  >
+                    {instrumentationAutomation.solutionTracks.map((track) => (
+                      <button
+                        key={track.id}
+                        type="button"
+                        role="tab"
+                        aria-selected={automationTab === track.id}
+                        className={`filter-tab ${
+                          automationTab === track.id ? "filter-tab--active" : ""
+                        }`}
+                        onClick={() => setAutomationTab(track.id)}
+                      >
+                        {track.tabLabel}
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="automation-track-panel">
+                    <div className="automation-track-head">
+                      <div>
+                        <h3>{activeTrack.heading}</h3>
+                        <p>{activeTrack.intro}</p>
+                      </div>
+                      <button
+                        type="button"
+                        className="btn btn-primary"
+                        onClick={() =>
+                          jumpToInquiry(
+                            `Instrumentation & Automation — ${activeTrack.heading}`
+                          )
+                        }
+                      >
+                        Discuss this architecture
+                        <ArrowRight size={16} aria-hidden="true" />
+                      </button>
+                    </div>
+
+                    <div className="automation-spec-grid">
+                      {activeTrack.items.map((spec) => (
+                        <div className="automation-spec-card" key={spec.title}>
+                          <h4>{spec.title}</h4>
+                          <p>{spec.detail}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="automation-brands-row">
+                      <span>{activeTrack.brandsLabel}</span>
+                      <div>
+                        {activeTrack.brands.map((brand) => (
+                          <span key={brand}>{brand}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
+
+            <div className="automation-case">
+              <div className="automation-case__body">
+                <span className="section-kicker section-kicker--sky">
+                  {instrumentationAutomation.caseSpotlight.kicker}
+                </span>
+                <h3>{instrumentationAutomation.caseSpotlight.title}</h3>
+                <p>{instrumentationAutomation.caseSpotlight.challenge}</p>
+                <ul>
+                  {instrumentationAutomation.caseSpotlight.solution.map((step) => (
+                    <li key={step}>
+                      <CheckCircle2 size={17} aria-hidden="true" />
+                      <span>{step}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="automation-case__metrics">
+                {instrumentationAutomation.caseSpotlight.results.map((res) => (
+                  <div className="case-metric" key={res.label}>
+                    <strong className="mono-text">{res.value}</strong>
+                    <span>{res.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CORE VALUES */}
         <section className="section values-band" id="values">
           <div className="container">
             <div className="section-header-split">
               <div>
-                <div className="section-kicker">05 / WHAT GUIDES US</div>
+                <div className="section-kicker">06 / WHAT GUIDES US</div>
                 <h2>
                   Values that show up{" "}
                   <span className="accent-text">in the work.</span>
@@ -863,7 +1038,7 @@ function App() {
           <div className="container">
             <div className="section-header-split">
               <div>
-                <div className="section-kicker">06 / WHERE WE WORK</div>
+                <div className="section-kicker">07 / WHERE WE WORK</div>
                 <h2>
                   Different sectors.{" "}
                   <span className="accent-text">Shared ambition.</span>
@@ -900,7 +1075,7 @@ function App() {
           <div className="container">
             <div className="approach-head">
               <div className="section-kicker section-kicker--sky">
-                07 / HOW WE DELIVER
+                08 / HOW WE DELIVER
               </div>
               <h2>
                 A clear path from{" "}
@@ -930,7 +1105,7 @@ function App() {
           <div className="container">
             <div className="section-header-split">
               <div>
-                <div className="section-kicker">08 / THE MRIYA DIFFERENCE</div>
+                <div className="section-kicker">09 / THE MRIYA DIFFERENCE</div>
                 <h2>
                   Why choose <span className="accent-text">Mriya?</span>
                 </h2>
@@ -978,7 +1153,7 @@ function App() {
           <div className="container contact-grid">
             <div className="contact-info">
               <div className="section-kicker section-kicker--sky">
-                09 / CONTACT US
+                10 / CONTACT US
               </div>
               <h2>
                 Let&apos;s build smarter{" "}
@@ -1137,6 +1312,9 @@ function App() {
                         <option value="Oil & Gas / Mechanical / Civil Engineering">
                           Oil &amp; Gas / Mechanical / Civil Engineering
                         </option>
+                        <option value="Instrumentation & Automation (PLC / SCADA / IIoT)">
+                          Instrumentation &amp; Automation (PLC / SCADA / IIoT)
+                        </option>
                         <option value="Corporate Branding & Digital Services">
                           Corporate Branding &amp; Digital Services
                         </option>
@@ -1148,6 +1326,7 @@ function App() {
                           "Educational Technology (EdTech)",
                           "Equipment Supply & Procurement",
                           "Oil & Gas / Mechanical / Civil Engineering",
+                          "Instrumentation & Automation (PLC / SCADA / IIoT)",
                           "Corporate Branding & Digital Services",
                         ].includes(formState.interest) && (
                           <option value={formState.interest}>
@@ -1221,6 +1400,7 @@ function App() {
               <a href="#services">Services</a>
               <a href="#spaces">Collaboration Spaces</a>
               <a href="#platforms">Platforms &amp; Headsets</a>
+              <a href="#automation">Instrumentation &amp; Automation</a>
             </div>
 
             <div className="footer-links-col">

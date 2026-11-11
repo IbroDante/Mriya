@@ -66,7 +66,7 @@ class ContactApiTests(unittest.TestCase):
                     "email": "amina@company.ng",
                     "organization": "Acme Abuja",
                     "interest": "Audiovisual & Teams Rooms",
-                    "message": "We need two Teams Rooms boardrooms fitted in Apo.",
+                    "message": "We need two Teams Rooms boardrooms fitted in Abuja CBD.",
                 },
             )
             self.assertEqual(res.status_code, 503)
