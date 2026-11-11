@@ -1,3 +1,4 @@
+import instrumentationImg from "../assets/images/instrumentation-automation.jpg";
 import serviceBrandingImg from "../assets/images/service-branding.jpg";
 import serviceCivilImg from "../assets/images/service-civil.jpg";
 import serviceDigitalImg from "../assets/images/service-digital.jpg";
@@ -16,12 +17,12 @@ export const companyInfo = {
   shortName: "Mriya",
   subBrand: "Mriya AV",
   rcNumber: "RC: 1700889",
-  address: "Suite 19A, Anon Plaza, Joseph Gomwalk Way, Gudu District, Apo, Abuja",
+  address: "BASSAN Plaza, Constitution Avenue, Central Business District, Abuja-FCT",
   region: "Abuja, Federal Capital Territory, Nigeria",
   phone: "+234 704 011 9747",
   phoneHref: "tel:+2347040119747",
   primaryEmail: "info@mriyacolimited.com.ng",
-  salesEmail: "sales001@mriyacolimited.com",
+  salesEmail: "sales001@mriyacolimited.com.ng",
   website: "www.mriyacolimited.com.ng",
   websiteUrl: "https://www.mriyacolimited.com.ng",
 };
@@ -496,7 +497,158 @@ export const extendedEcosystemBrands = [
   "Lenovo",
   "HP",
   "Huawei",
+  "Siemens",
+  "Schneider Electric",
+  "ABB",
+  "Endress+Hauser",
 ];
+
+export const instrumentationAutomation = {
+  image: instrumentationImg,
+  summary:
+    "In modern oil & gas, manufacturing, water treatment, utilities, and pharmaceutical facilities, precision and reliability are non-negotiable. Mriya Co Limited delivers Instrumentation & Automation systems that tighten process control, eliminate manual errors, and connect field assets to real-time monitoring.",
+  pillars: [
+    {
+      id: "instrumentation",
+      title: "Process Instrumentation",
+      summary:
+        "High-accuracy field sensors, transmitters, and analyzers for flow, temperature, pressure, level, and liquid/gas composition.",
+    },
+    {
+      id: "automation",
+      title: "Industrial Automation",
+      summary:
+        "PLC programming, SCADA supervision, Variable Frequency Drives (VFDs), and machine safety architectures that cut manual error.",
+    },
+    {
+      id: "iiot",
+      title: "Smart Monitoring & IIoT",
+      summary:
+        "Wireless data logging, vibration/thermal diagnostics, predictive maintenance, and energy management dashboards.",
+    },
+  ],
+  outcomes: [
+    {
+      metric: "±0.1%",
+      label: "Measurement Accuracy",
+      detail: "Calibrated process transmitters and analytical instrumentation.",
+    },
+    {
+      metric: "Predictive",
+      label: "Downtime Reduction",
+      detail: "Early vibration, thermal, and flow fault detection before failures.",
+    },
+    {
+      metric: "ESD / SIL",
+      label: "Enhanced Plant Safety",
+      detail: "Automated shutdowns, safety relays, and gas hazard interlocks.",
+    },
+    {
+      metric: "Optimised",
+      label: "Lower Operating Cost",
+      detail: "VFD motor efficiency, precision dosing, and energy tracking.",
+    },
+  ],
+  solutionTracks: [
+    {
+      id: "process",
+      tabLabel: "1. Process Instrumentation",
+      heading: "High-Precision Field Measurement & Analysis",
+      intro:
+        "We deploy calibrated field instrumentation for critical continuous monitoring across process plants, tank farms, and treatment utilities.",
+      items: [
+        {
+          title: "Temperature Monitoring",
+          detail: "RTDs, thermocouples, and infrared thermal sensors for kilns, vessels, and pipelines.",
+        },
+        {
+          title: "Flow & Level Measurement",
+          detail: "Ultrasonic flowmeters, radar tank level probes, and differential pressure transmitters.",
+        },
+        {
+          title: "pH, Chlorine & Turbidity Analysis",
+          detail: "Lab-grade analytical probes for water, effluent, and industrial wastewater treatment.",
+        },
+        {
+          title: "Gas & Liquid Analyzers",
+          detail: "Real-time toxic and combustible gas detection for hazardous industrial zones.",
+        },
+      ],
+      brandsLabel: "Supported Instrumentation Brands",
+      brands: ["Endress+Hauser", "Yokogawa", "Rosemount / Emerson"],
+    },
+    {
+      id: "plc-scada",
+      tabLabel: "2. Industrial Automation",
+      heading: "PLC, SCADA, Motor Drives & Safety Systems",
+      intro:
+        "Centralised automation systems built to streamline plant operations, protect rotating equipment, and simplify operator supervision.",
+      items: [
+        {
+          title: "PLC Programming",
+          detail: "Modular control logic and panel builds using Siemens SIMATIC and Allen-Bradley controllers.",
+        },
+        {
+          title: "SCADA Control & HMI",
+          detail: "Centralised operator graphics, alarm trending, batch logs, and remote supervisory control.",
+        },
+        {
+          title: "Variable Frequency Drives (VFDs)",
+          detail: "Soft-start and closed-loop motor speed control for pumps, fans, and compressors.",
+        },
+        {
+          title: "Machine Safety Systems",
+          detail: "Certified E-Stops, safety relays, interlock switches, and optical safety light curtains.",
+        },
+      ],
+      brandsLabel: "Supported Automation Ecosystems",
+      brands: ["Siemens SIMATIC", "Schneider Electric", "ABB", "Allen-Bradley"],
+    },
+    {
+      id: "iiot",
+      tabLabel: "3. Smart Monitoring & IIoT",
+      heading: "Wireless Telemetry, Predictive Care & Energy Management",
+      intro:
+        "Bridge legacy plant assets with cloud and on-premise dashboards so engineering teams act on live operational data.",
+      items: [
+        {
+          title: "Wireless Data Logging",
+          detail: "Remote telemetry gateways delivering encrypted real-time process readings anywhere.",
+        },
+        {
+          title: "Predictive Maintenance",
+          detail: "Continuous vibration and thermal condition monitoring to prevent unplanned pump or bearing failure.",
+        },
+        {
+          title: "Energy Management Systems",
+          detail: "Power-quality metering and load analytics to monitor and reduce facility energy consumption.",
+        },
+        {
+          title: "P&IDs & Loop Commissioning",
+          detail: "As-built Piping & Instrumentation Diagrams, loop calibration charts, and operator training.",
+        },
+      ],
+      brandsLabel: "Key Engineering Deliverables",
+      brands: ["P&ID Documentation", "Calibration Charts", "24/7 Telemetry Dashboards"],
+    },
+  ],
+  caseSpotlight: {
+    kicker: "INDUSTRIAL APPLICATION BENCHMARK",
+    title: "Automated Water & Utility Treatment Control",
+    challenge:
+      "Water and industrial utility facilities often contend with inconsistent chemical dosing, fluctuating residual levels, and slow manual inspection rounds.",
+    solution: [
+      "Automated chemical dosing pumps driven by inline pH and chlorine analyzers.",
+      "SCADA-controlled alarm thresholds with real-time closed-loop adjustments.",
+      "Centralised telemetry logging for continuous regulatory compliance audits.",
+    ],
+    results: [
+      { value: "99.9%", label: "Target treatment quality compliance" },
+      { value: "30%", label: "Faster fault diagnostics via SCADA" },
+      { value: "20–40%", label: "Lower maintenance & manual overhead" },
+    ],
+  },
+};
 
 export const values = [
   {

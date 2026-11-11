@@ -1443,6 +1443,307 @@ h4 {
   color: var(--navy);
 }
 
+/* INSTRUMENTATION & AUTOMATION */
+.automation-hero-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+}
+
+.automation-media {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--navy);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+}
+
+.automation-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.automation-media__caption {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--sky);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.automation-lead {
+  font-size: 15.5px;
+  line-height: 1.72;
+  color: var(--body);
+  margin-bottom: 22px;
+}
+
+.automation-pillars {
+  display: grid;
+  gap: 14px;
+}
+
+.automation-pillar {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.automation-pillar__icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  background: var(--sky-soft);
+  color: var(--blue);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.automation-pillar h3 {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.automation-pillar p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--body);
+}
+
+.automation-outcomes {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.outcome-tile {
+  padding: 20px;
+  border-radius: var(--radius-md);
+  background: var(--ice);
+  border: 1px solid #bae6fd;
+}
+
+.outcome-tile strong {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--blue-hover);
+  margin-bottom: 6px;
+}
+
+.outcome-tile h4 {
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.outcome-tile p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--body);
+}
+
+.automation-explorer {
+  margin-top: 36px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  padding: clamp(22px, 3vw, 32px);
+}
+
+.automation-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.automation-track-panel {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: clamp(20px, 3vw, 28px);
+}
+
+.automation-track-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.automation-track-head h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.automation-track-head p {
+  max-width: 600px;
+  margin: 0;
+  font-size: 14px;
+  color: var(--body);
+}
+
+.automation-spec-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.automation-spec-card {
+  padding: 18px;
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  border: 1px solid var(--line);
+}
+
+.automation-spec-card h4 {
+  font-size: 15.5px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.automation-spec-card p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.58;
+  color: var(--body);
+}
+
+.automation-brands-row {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.automation-brands-row > span {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.automation-brands-row > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.automation-brands-row > div span {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--ice);
+  border: 1px solid #bae6fd;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.automation-case {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 28px;
+  align-items: center;
+  padding: clamp(24px, 3.2vw, 36px);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #0f172a 0%, #162a45 100%);
+  color: var(--white);
+}
+
+.automation-case__body h3 {
+  color: var(--white);
+  font-size: clamp(21px, 2.2vw, 27px);
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.automation-case__body > p {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #cbd5e1;
+  margin-bottom: 16px;
+}
+
+.automation-case__body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 9px;
+}
+
+.automation-case__body li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 13.5px;
+  color: #e2e8f0;
+}
+
+.automation-case__body li svg {
+  color: var(--sky);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.automation-case__metrics {
+  display: grid;
+  gap: 12px;
+}
+
+.case-metric {
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.case-metric strong {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--sky);
+  line-height: 1.15;
+  margin-bottom: 4px;
+}
+
+.case-metric span {
+  font-size: 12.5px;
+  color: #cbd5e1;
+}
+
 /* VALUES */
 .values-band {
   background: #edf7fc;
@@ -2117,6 +2418,8 @@ h4 {
   .about-layout,
   .spaces-showcase,
   .headsets-banner,
+  .automation-hero-grid,
+  .automation-case,
   .contact-grid {
     grid-template-columns: 1fr;
   }
@@ -2126,7 +2429,8 @@ h4 {
   .applications-strip,
   .industries-grid,
   .why-grid,
-  .mission-trio {
+  .mission-trio,
+  .automation-outcomes {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -2218,6 +2522,8 @@ h4 {
   .partners-flagship-grid,
   .steps-grid,
   .spaces-selector,
+  .automation-outcomes,
+  .automation-spec-grid,
   .form-row-2 {
     grid-template-columns: 1fr;
   }
