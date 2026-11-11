@@ -1,7 +1,13 @@
 import { useEffect } from "react";
 import { ArrowUpRight, CheckCircle2, X } from "./Icons.jsx";
 
-export function ServiceModal({ service, onClose, onInquire }) {
+export function ServiceModal({
+  service,
+  totalServices = 10,
+  onClose,
+  onInquire,
+  onExploreSection,
+}) {
   useEffect(() => {
     if (!service) return;
     function handleKeyDown(event) {
@@ -29,7 +35,9 @@ export function ServiceModal({ service, onClose, onInquire }) {
       <div className="modal-panel" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div className="modal-meta">
-            <span className="modal-index">{service.number} / 09</span>
+            <span className="modal-index">
+              {service.number} / {String(totalServices).padStart(2, "0")}
+            </span>
             <span className="modal-label">{service.label}</span>
           </div>
           <button
@@ -73,6 +81,15 @@ export function ServiceModal({ service, onClose, onInquire }) {
           <button type="button" className="btn btn-secondary" onClick={onClose}>
             Back to overview
           </button>
+          {service.sectionHref && onExploreSection && (
+            <button
+              type="button"
+              className="btn btn-outline"
+              onClick={() => onExploreSection(service.sectionHref)}
+            >
+              Open full {service.title} showcase
+            </button>
+          )}
           <button
             type="button"
             className="btn btn-primary"

@@ -85,7 +85,7 @@ function App() {
   const [spaceMode, setSpaceMode] = useState("blueprints");
   const [activeSpaceId, setActiveSpaceId] = useState("huddle");
   const [headsetBrand, setHeadsetBrand] = useState("all");
-  const [automationTab, setAutomationTab] = useState("process");
+  const [automationTab, setAutomationTab] = useState("all");
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -328,7 +328,7 @@ function App() {
                   </div>
                   <div className="floating-card-metrics">
                     <div>
-                      <strong>09</strong>
+                      <strong>{String(services.length).padStart(2, "0")}</strong>
                       <span>Integrated Divisions</span>
                     </div>
                     <div>
@@ -353,6 +353,7 @@ function App() {
             <p className="statement-flow">
               Audiovisual <i aria-hidden="true" /> IT Infrastructure{" "}
               <i aria-hidden="true" /> Digital Workflows{" "}
+              <i aria-hidden="true" /> Instrumentation &amp; Automation{" "}
               <i aria-hidden="true" /> Engineering <i aria-hidden="true" />{" "}
               People
             </p>
@@ -540,7 +541,7 @@ function App() {
               ))}
             </div>
 
-            {/* 9 Service Cards */}
+            {/* 10 Service Cards */}
             <div className="services-grid">
               {filteredServices.map((service) => (
                 <article className="service-card" key={service.number}>
@@ -554,7 +555,7 @@ function App() {
                       }}
                     />
                     <span className="service-card__num mono-text">
-                      {service.number} / 09
+                      {service.number} / {String(services.length).padStart(2, "0")}
                     </span>
                   </div>
                   <div className="service-card__body">
@@ -856,7 +857,8 @@ function App() {
               </div>
               <p className="section-aside">
                 From calibrated field transmitters to PLC/SCADA supervision and
-                IIoT diagnostics across energy, water, and manufacturing plants.
+                IIoT diagnostics across oil &amp; gas, water, utilities, and
+                manufacturing plants.
               </p>
             </div>
 
@@ -895,110 +897,210 @@ function App() {
               </div>
             </div>
 
-            <div className="automation-outcomes">
-              {instrumentationAutomation.outcomes.map((item) => (
-                <div className="outcome-tile" key={item.label}>
-                  <strong className="mono-text">{item.metric}</strong>
-                  <h4>{item.label}</h4>
-                  <p>{item.detail}</p>
-                </div>
-              ))}
+            {/* What is Instrumentation & Automation? */}
+            <div className="automation-whatis">
+              <div className="automation-whatis__header">
+                <h3>{instrumentationAutomation.whatIs.heading}</h3>
+                <p>{instrumentationAutomation.whatIs.description}</p>
+                <span className="automation-benefits-lead">
+                  {instrumentationAutomation.whatIs.benefitsLead}
+                </span>
+              </div>
+
+              <div className="automation-outcomes">
+                {instrumentationAutomation.outcomes.map((item) => (
+                  <div className="outcome-tile" key={item.label}>
+                    <div className="outcome-tile__top">
+                      <strong className="mono-text">{item.metric}</strong>
+                      <CheckCircle2 size={18} className="outcome-check" aria-hidden="true" />
+                    </div>
+                    <h4>{item.label}</h4>
+                    <p>{item.detail}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
+            {/* Our Instrumentation & Automation Solutions */}
             {(() => {
-              const activeTrack =
-                instrumentationAutomation.solutionTracks.find(
-                  (t) => t.id === automationTab
-                ) || instrumentationAutomation.solutionTracks[0];
+              const visibleTracks =
+                automationTab === "all"
+                  ? instrumentationAutomation.solutionTracks
+                  : instrumentationAutomation.solutionTracks.filter(
+                      (t) => t.id === automationTab
+                    );
               return (
                 <div className="automation-explorer">
-                  <div
-                    className="automation-tabs"
-                    role="tablist"
-                    aria-label="Instrumentation and automation solutions"
-                  >
-                    {instrumentationAutomation.solutionTracks.map((track) => (
+                  <div className="automation-explorer__head">
+                    <div>
+                      <span className="section-kicker">SOLUTIONS ARCHITECTURE</span>
+                      <h3>Our Instrumentation &amp; Automation Solutions</h3>
+                    </div>
+                    <div
+                      className="automation-tabs"
+                      role="tablist"
+                      aria-label="Filter instrumentation and automation solutions"
+                    >
                       <button
-                        key={track.id}
                         type="button"
                         role="tab"
-                        aria-selected={automationTab === track.id}
+                        aria-selected={automationTab === "all"}
                         className={`filter-tab ${
-                          automationTab === track.id ? "filter-tab--active" : ""
+                          automationTab === "all" ? "filter-tab--active" : ""
                         }`}
-                        onClick={() => setAutomationTab(track.id)}
+                        onClick={() => setAutomationTab("all")}
                       >
-                        {track.tabLabel}
+                        All Solutions (3)
                       </button>
-                    ))}
-                  </div>
-
-                  <div className="automation-track-panel">
-                    <div className="automation-track-head">
-                      <div>
-                        <h3>{activeTrack.heading}</h3>
-                        <p>{activeTrack.intro}</p>
-                      </div>
-                      <button
-                        type="button"
-                        className="btn btn-primary"
-                        onClick={() =>
-                          jumpToInquiry(
-                            `Instrumentation & Automation — ${activeTrack.heading}`
-                          )
-                        }
-                      >
-                        Discuss this architecture
-                        <ArrowRight size={16} aria-hidden="true" />
-                      </button>
-                    </div>
-
-                    <div className="automation-spec-grid">
-                      {activeTrack.items.map((spec) => (
-                        <div className="automation-spec-card" key={spec.title}>
-                          <h4>{spec.title}</h4>
-                          <p>{spec.detail}</p>
-                        </div>
+                      {instrumentationAutomation.solutionTracks.map((track) => (
+                        <button
+                          key={track.id}
+                          type="button"
+                          role="tab"
+                          aria-selected={automationTab === track.id}
+                          className={`filter-tab ${
+                            automationTab === track.id ? "filter-tab--active" : ""
+                          }`}
+                          onClick={() => setAutomationTab(track.id)}
+                        >
+                          {track.tabLabel}
+                        </button>
                       ))}
                     </div>
+                  </div>
 
-                    <div className="automation-brands-row">
-                      <span>{activeTrack.brandsLabel}</span>
-                      <div>
-                        {activeTrack.brands.map((brand) => (
-                          <span key={brand}>{brand}</span>
-                        ))}
+                  <div className="automation-tracks-stack">
+                    {visibleTracks.map((track) => (
+                      <div className="automation-track-panel" key={track.id}>
+                        <div className="automation-track-head">
+                          <div>
+                            <span className="automation-track-num mono-text">
+                              {track.tabLabel}
+                            </span>
+                            <h4>{track.heading}</h4>
+                            <p>{track.intro}</p>
+                          </div>
+                          <button
+                            type="button"
+                            className="btn btn-outline"
+                            onClick={() =>
+                              jumpToInquiry(
+                                `Instrumentation & Automation — ${track.heading}`
+                              )
+                            }
+                          >
+                            Request {track.heading} quote
+                            <ArrowRight size={16} aria-hidden="true" />
+                          </button>
+                        </div>
+
+                        <div className="automation-spec-grid">
+                          {track.items.map((spec) => (
+                            <div className="automation-spec-card" key={spec.title}>
+                              <h5>{spec.title}</h5>
+                              <p>{spec.detail}</p>
+                            </div>
+                          ))}
+                        </div>
+
+                        <div className="automation-brands-row">
+                          <span>{track.brandsLabel.toUpperCase()}</span>
+                          <div>
+                            {track.brands.map((brand) => (
+                              <span key={brand}>{brand}</span>
+                            ))}
+                          </div>
+                        </div>
                       </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               );
             })()}
 
+            {/* Why Choose Mriya for Instrumentation & Automation */}
+            <div className="automation-why">
+              <div className="automation-why__head">
+                <span className="section-kicker">INDUSTRIAL ADVANTAGE</span>
+                <h3>Why Choose Mriya for Instrumentation &amp; Automation?</h3>
+              </div>
+              <div className="automation-why__grid">
+                {instrumentationAutomation.whyChoose.map((reason) => (
+                  <article className="automation-why__card" key={reason.title}>
+                    <CheckCircle2 size={20} className="automation-why__icon" aria-hidden="true" />
+                    <h4>{reason.title}</h4>
+                    <p>{reason.description}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            {/* Case Study */}
             <div className="automation-case">
-              <div className="automation-case__body">
-                <span className="section-kicker section-kicker--sky">
-                  {instrumentationAutomation.caseSpotlight.kicker}
-                </span>
-                <h3>{instrumentationAutomation.caseSpotlight.title}</h3>
-                <p>{instrumentationAutomation.caseSpotlight.challenge}</p>
-                <ul>
-                  {instrumentationAutomation.caseSpotlight.solution.map((step) => (
-                    <li key={step}>
-                      <CheckCircle2 size={17} aria-hidden="true" />
-                      <span>{step}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="automation-case__media">
+                <img
+                  src={instrumentationAutomation.caseSpotlight.image}
+                  alt={instrumentationAutomation.caseSpotlight.imageAlt}
+                  loading="lazy"
+                />
               </div>
 
-              <div className="automation-case__metrics">
-                {instrumentationAutomation.caseSpotlight.results.map((res) => (
-                  <div className="case-metric" key={res.label}>
-                    <strong className="mono-text">{res.value}</strong>
-                    <span>{res.label}</span>
-                  </div>
-                ))}
+              <div className="automation-case__content">
+                <div className="automation-case__body">
+                  <span className="section-kicker section-kicker--sky">
+                    {instrumentationAutomation.caseSpotlight.kicker}
+                  </span>
+                  <h3>{instrumentationAutomation.caseSpotlight.title}</h3>
+                  <p>{instrumentationAutomation.caseSpotlight.challenge}</p>
+                  <ul>
+                    {instrumentationAutomation.caseSpotlight.solution.map((step) => (
+                      <li key={step}>
+                        <CheckCircle2 size={17} aria-hidden="true" />
+                        <span>{step}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="automation-case__metrics">
+                  {instrumentationAutomation.caseSpotlight.results.map((res) => (
+                    <div className="case-metric" key={res.label}>
+                      <strong className="mono-text">{res.value}</strong>
+                      <span>{res.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Upgrade Your Operations Today CTA Banner */}
+            <div className="automation-cta-banner">
+              <div className="automation-cta-banner__copy">
+                <h3>{instrumentationAutomation.upgradeBanner.heading}</h3>
+                <p>{instrumentationAutomation.upgradeBanner.description}</p>
+              </div>
+              <div className="automation-cta-banner__actions">
+                <a className="automation-contact-chip" href={companyInfo.phoneHref}>
+                  <Phone size={15} aria-hidden="true" />
+                  <span>{companyInfo.phone}</span>
+                </a>
+                <a
+                  className="automation-contact-chip"
+                  href={`mailto:${companyInfo.salesEmail}`}
+                >
+                  <Mail size={15} aria-hidden="true" />
+                  <span>{companyInfo.salesEmail}</span>
+                </a>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() =>
+                    jumpToInquiry("Instrumentation & Automation (PLC / SCADA / IIoT)")
+                  }
+                >
+                  Start an Automation Inquiry
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </button>
               </div>
             </div>
           </div>
@@ -1425,7 +1527,7 @@ function App() {
               <span className="footer-credit">
                 Designed by{" "}
                 <a
-                  href="https://plugtech.onrender.com/"
+                  href="https://plugtec.onrender.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -1442,8 +1544,14 @@ function App() {
 
       <ServiceModal
         service={selectedService}
+        totalServices={services.length}
         onClose={() => setSelectedService(null)}
         onInquire={(serviceTitle) => jumpToInquiry(serviceTitle)}
+        onExploreSection={(href) => {
+          setSelectedService(null);
+          const el = document.querySelector(href);
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        }}
       />
     </div>
   );
